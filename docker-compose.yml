@@ -1,0 +1,9 @@
+sk:
+  image: mritd/shadowsocks
+  ports:
+    - "port:6443"
+    - "port:6500/udp"
+  environment:
+    SS_CONFIG: -s 0.0.0.0 -p 6443 -m rc4-md5 -k pass --fast-open
+    KCP_CONFIG: -t 127.0.0.1:6443 -l :6500 -mode fast2 -sndwnd 3072 -rcvwnd 3072 -key zxt 
+    KCP_FLAG: "true"
